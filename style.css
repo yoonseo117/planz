@@ -3,22 +3,23 @@
 :root{
     --color-primary: #6C9BCF;
     --color-danger: #FF0060;
-    --color-success: #189C85;
+    --color-success: #1B9C85;
+    --color-warning: #F7D060;
     --color-white: #fff;
     --color-info-dark: #7d8da1;
     --color-dark: #363949;
-    --color-Light: rgba(132, 139, 200, 0.18);
-    --color-dark-variant: #677438;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
     --color-background: #f6f6f9;
 
     --card-border-radius: 2rem;
     --border-radius-1: 0.4rem;
     --border-radius-2: 1.2rem;
-    
+
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
 
-    --box-shadow: 0 2rem 3rem var(--color-Light);
+    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 .dark-mode-variables{
@@ -144,7 +145,7 @@ aside .sidebar{
     height: 88vh;
     position: relative;
     top: 1.5rem;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 aside .sidevar:hover{
@@ -153,6 +154,7 @@ aside .sidevar:hover{
 
 aside .sidebar a{ /* 색상 간격 */
     display: flex;
+    align-items: center;
     color: var(--color-info-dark);
     height: 3.7rem;
     gap: 1rem;
@@ -190,6 +192,124 @@ aside .sidebar a.active span{
     margin-left: calc(1rem - 3px);
 }
 
-aside .sidebar a:hover{
+aside .sidebar a:hover{  /* 움직이는거 */
     color: var(--color-primary);
+}
+
+aside .sidebar a:hover span{ /* 움직이는 정도 */
+    margin-left: 0.6rem;
+}
+
+aside .sidebar .message-count{ /* 알림 (숫자) 색 */
+    background-color: var(--color-danger);
+    padding: 2px 6px;
+    color: var(--color-white);
+    font-size: 11px;
+    border-radius: var(--border-radius-1);
+}
+
+
+main{
+    margin-top: 1.4rem;
+}
+
+main .analyse{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+
+}
+
+main .analyse > div{ /* !흰 상자! */
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease
+}
+
+main .analyse > div:hover{ /* 커서 반응*/
+    box-shadow: none;
+}
+
+main .analyse > div .status{ /* 사장 크기 조절 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .analyse h3{
+    margin-left: 0.6rem;
+    font-size: 1rem;
+}
+
+main .analyse .progresss{
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+main .analyse svg{
+    width: 7rem;
+    height: 7rem;
+}
+
+main .analyse svg circle{
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+main .analyse .sales svg circle{ /*초록색 바 */
+    stroke: var(--color-success);
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .analyse .visits svg circle{ /*초록색 바 */
+    stroke: var(--color-danger);
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .analyse .searches svg circle{ /*초록색 바 */
+    stroke: var(--color-primary);
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+
+main .analyse .progresss .percentage{ /*숫자 초록색 안에 정렬 */
+    position: absolute;
+    top: -3px;
+    left: -1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+main .new-users{
+    margin-top: 1.3rem;
+}
+
+main .new-users .user-list{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease ;
 }
